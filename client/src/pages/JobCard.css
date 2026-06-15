@@ -1,0 +1,98 @@
+.card-container {
+  position: relative;
+  display: grid;
+  gap: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #ffffff;
+  padding: 16px 86px 16px 16px;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.card-container:hover {
+  border-color: #b8c5d8;
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.08);
+  transform: translateY(-1px);
+}
+
+.job-info {
+  display: grid;
+  grid-template-columns: minmax(120px, 1.25fr) minmax(120px, 1.25fr) minmax(90px, 0.7fr) minmax(120px, 0.9fr);
+  gap: 8px;
+  align-items: center;
+}
+
+.job-info > span,
+.notes {
+  min-width: 0;
+  border-radius: 7px;
+  background: var(--surface-muted);
+  color: var(--text);
+  font-size: 0.92rem;
+  line-height: 1.35;
+  padding: 9px 10px;
+  overflow-wrap: anywhere;
+}
+
+.job-info > span:nth-child(3) {
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+  font-weight: 800;
+  text-transform: capitalize;
+}
+
+.notes {
+  color: var(--muted);
+}
+
+.edit-button,
+.remove-button {
+  position: absolute;
+  right: 14px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  min-height: 34px;
+  height: 34px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: #ffffff;
+  padding: 0;
+}
+
+.remove-button {
+  top: 14px;
+}
+
+.edit-button {
+  bottom: 14px;
+}
+
+.edit-button:hover,
+.remove-button:hover {
+  background: var(--surface-muted);
+  box-shadow: none;
+}
+
+.edit-button > img,
+.remove-button > img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .job-info {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .card-container {
+    padding-right: 58px;
+  }
+
+  .job-info {
+    grid-template-columns: 1fr;
+  }
+}
