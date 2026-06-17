@@ -1,11 +1,11 @@
 import api from "../services/api";
 import {useAuth} from "../context/AuthContext"
-import {useNavigate,Navigate} from "react-router-dom"
+import {useNavigate} from "react-router-dom"
 import { useState } from "react";
 
 export default  function Login() {
   const navigate=useNavigate();
-  const {login,token} =useAuth()
+  const {login} =useAuth()
   const [error, setError] = useState("")
   const [loading,setLoading]=useState(false)
   const handleLogin= async (e)=>{
@@ -17,7 +17,7 @@ export default  function Login() {
     try{
     const response=await api.post("/auth/login/",data);
     login(response.data.token,response.data.user.id);
-    navigate("/dashboard/")
+    navigate("/dashboard")
     }catch(err){
       console.error(err)
       if(err.response?.status === 401){
@@ -32,9 +32,6 @@ export default  function Login() {
     }
 
     
-  }
-  if(token){
-    return <Navigate to="/dashboard/"/>
   }
   return (
     <>
