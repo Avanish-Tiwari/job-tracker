@@ -7,9 +7,11 @@ export default  function Login() {
   const navigate=useNavigate();
   const {login,token} =useAuth()
   const [error, setError] = useState("")
+  const [loading,setLoading]=useState(false)
   const handleLogin= async (e)=>{
     e.preventDefault();
     setError("");
+    setLoading(true)
     const formData= new FormData(e.currentTarget);
     const data=Object.fromEntries(formData.entries());
     try{
@@ -25,6 +27,8 @@ export default  function Login() {
       } else {
         setError("Login failed. Please try again.");
       }
+    }finally{
+      setLoading(false)
     }
 
     
@@ -44,7 +48,7 @@ export default  function Login() {
           <input id="email" type="text" name="email" required onChange={() => setError("")} />
           <label htmlFor="password">Enter Password here</label>
           <input id="password" type="password" name="password" required onChange={() => setError("")} />
-          <button>Login</button>
+          <button>{loading?"Loading..":"Login"}</button>
           <button type="button" className="secondary-button" onClick={()=>navigate("/register/")}>Register Here!</button>
         </form>
         </section>
