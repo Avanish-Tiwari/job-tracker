@@ -6,7 +6,7 @@ import api from "../services/api"
 export default function JobCard({ job }) {
   const navigate=useNavigate()
   const handleEdit=()=>{
-   navigate("/edit/",{
+   navigate("/edit",{
     state:{job:job}
    });
   }

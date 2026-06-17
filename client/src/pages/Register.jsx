@@ -12,7 +12,7 @@ export default function Register() {
       const response = await api.post("/auth/register/", data);
       console.log(response.data);
       login(response.data.token, response.data.user.id);
-      navigate("/dashboard/");
+      navigate("/dashboard");
     } catch (err) {
       console.error(err.message);
     }
@@ -30,7 +30,7 @@ export default function Register() {
         <label htmlFor="password">Password</label>
         <input type="password" id="password" name="password" />
         <button>Register</button>
-        <button type="button" className="secondary-button" onClick={()=>navigate("/login/")}>Go To Login Page</button>
+        <button type="button" className="secondary-button" onClick={()=>navigate("/login")}>Go To Login Page</button>
       </form>
       </section>
     </div>

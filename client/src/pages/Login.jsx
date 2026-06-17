@@ -46,7 +46,7 @@ export default  function Login() {
           <label htmlFor="password">Enter Password here</label>
           <input id="password" type="password" name="password" required onChange={() => setError("")} />
           <button>{loading?"Loading..":"Login"}</button>
-          <button type="button" className="secondary-button" onClick={()=>navigate("/register/")}>Register Here!</button>
+          <button type="button" className="secondary-button" onClick={()=>navigate("/register")}>Register Here!</button>
         </form>
         </section>
       </div>

@@ -18,7 +18,7 @@ export default function EditJob() {
     e.preventDefault();
     try {
       await api.put(`/jobs/${job.id}`, job);
-      navigate("/");
+      navigate("/dashboard");
     } catch (err) {
       console.error(err.message);
     }
@@ -83,7 +83,7 @@ export default function EditJob() {
           onChange={handleChange}
         />
         <button type="submit">Update Job info</button>
-        <button type="button" className="secondary-button" onClick={() => navigate("/")}>Back To Dashboard</button>
+        <button type="button" className="secondary-button" onClick={() => navigate("/dashboard")}>Back To Dashboard</button>
       </form>
       </section>
     </div>
